@@ -67,6 +67,16 @@ table.classList.add('tableCopy')
 getComputedStyle(this.table,null).getPropertyValue('border-bottom-width'));
 ```
 
+#### 阻止选中文字
+```
+document.removeEventListener('selectstart', onSelect)
+```
+```
+const onSelect=(e)=>{
+     e.preventDefault()
+}
+```
+
 #### window 事件
 * resize:改变浏览器宽度
 * scroll:滚动
