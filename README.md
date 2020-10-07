@@ -1,3 +1,47 @@
+#### createDocumentFragment
+DocumentFragments 是DOM节点。它们不是主DOM树的一部分。通常的用例是创建文档片段，将元素附加到文档片段，然后将文档片段附加到DOM树。在DOM树中，文档片段被其所有的子元素所代替。
+
+因为文档片段存在于内存中，并不在DOM树中，所以将子元素插入到文档片段时不会引起页面回流（对元素位置和几何上的计算）。因此，使用文档片段通常会带来更好的性能。
+
+比如，我们要修改页面中某节点下的1000个元素，通常的做法就是先把1000个元素转移到一个 fragment 中，再将这个 fragment 插入真实的 DOM 树中。
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div id="father">
+    <div class="son1">son-1</div>
+    <div class="son2">son-2</div>
+    <div class="son3">son-3</div>
+  </div>
+</body>
+</html>
+```
+```js
+el = document.querySelector("#father");
+
+function nodeToFragment(el) {
+  var fragment = document.createDocumentFragment();
+  var child = el.firstChild;
+  while (child) {
+    // 将Dom元素移入fragment中
+    fragment.appendChild(child);
+    child = el.firstChild;
+    if(child&&child.innerHTML)
+      // update child.innerHTML
+      console.log(child.innerHTML);
+  }
+  return fragment;
+}
+
+var fragment=nodeToFragment(el);
+el.appendChild(this.fragment);
+```
+
+---
 #### getBoundingClientRect
 > 返回四个值
 * left:元素相对于左上角视口的横向距离
