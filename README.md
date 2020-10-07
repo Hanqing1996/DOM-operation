@@ -20,6 +20,7 @@ DocumentFragments 是DOM节点。它们不是主DOM树的一部分。通常的�
 </body>
 </html>
 ```
+> 注意下面的 fragment.appendChild(child) 会将 #father 的子元素**转移**到 fragment 中。
 ```js
 el = document.querySelector("#father");
 
