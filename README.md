@@ -1,3 +1,7 @@
+#### 检查节点类型
+https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType
+
+---
 #### createDocumentFragment
 DocumentFragments 是DOM节点。它们不是主DOM树的一部分。通常的用例是创建文档片段，将元素附加到文档片段，然后将文档片段附加到DOM树。在DOM树中，文档片段被其所有的子元素所代替。
 
