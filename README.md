@@ -64,12 +64,15 @@ let height=window.scrollY+top
 > top 可能是负值，表示元素在当前文档顶部之上
 
 #### currentTarget 和 target
-```
-onClick(event){
-    console.log(event.currentTarget) // 绑定监听事件的元素
-    console.log(event.target) // 触发事件的元素
-}
-```
+* Event.target
+> Event.target 对触发事件的对象的引用(即它标识事件发生的元素)
+
+* event.currentTarget
+> event.currentTarget 当事件遍历DOM时，标识事件的当前目标。它总是引用事件处理程序附加到的元素
+
+target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，
+而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象（一般为父级）。
+
 
 #### appendChild 和 cloneNode
 * appendChild()
